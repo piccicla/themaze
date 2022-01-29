@@ -5,7 +5,7 @@
 /// updated:29/01/22
 ///
 use crate::prelude::*;
-//////////////
+///////////////
 
 pub struct Player{
     pub position: Point
