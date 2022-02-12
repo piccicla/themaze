@@ -2,7 +2,7 @@
 /// map_builder.rs
 /// Build a map
 /// authors: claudio piccinini picci2001@yahoo.it
-/// updated:05/05/22
+/// updated:05/02/22
 ///
 use crate::prelude::*;
 const NUM_ROOMS: usize = 20;

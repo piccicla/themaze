@@ -1,0 +1,11 @@
+[package]
+name = "themaze"
+version = "0.1.0"
+authors = ["Claudio Piccinini <picci2001@yahoo.it>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bracket-lib = "~0.8.1"
+legion = "=0.3.1"
