@@ -2,7 +2,7 @@
 /// components.rs
 /// 
 /// authors: claudio piccinini picci2001@yahoo.it
-/// updated:12/02/22
+/// updated:26/02/22
 ///
 pub use crate::prelude::*;  //TODO: why is this public?
 ///////////////
@@ -19,3 +19,6 @@ pub struct Player;
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Enemy;
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MovingRandomly;

@@ -10,7 +10,9 @@ mod map_builder;
 mod camera;
 mod components;
 mod spawner;
+mod turn_state;
 mod systems;
+
 mod prelude{
     pub use bracket_lib::prelude::*;
     pub const SCREEN_WIDTH: i32 = 80;
@@ -28,6 +30,7 @@ mod prelude{
 
     pub use crate::components::*;
     pub use crate::spawner::*;
+    pub use crate::turn_state::*;
     pub use crate::systems::*;
 }
 use prelude::*;
@@ -57,6 +60,7 @@ impl State{
         
         resources.insert(map_builder.map);
         resources.insert(Camera::new(map_builder.player_start));
+        resources.insert(TurnState::AwaitingInput);
         Self {
             //map: Map::new(),
             //player: Player::new(Point::new(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)),
