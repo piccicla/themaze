@@ -43,8 +43,12 @@ struct State{
     //camera: Camera
     ecs: World,
     resources: Resources,
-    systems: Schedule
+    //systems: Schedule,
+    input_systems: Schedule,
+    player_systems: Schedule,
+    monster_systems: Schedule
 }
+
 impl State{
     fn new() -> Self {
         let mut ecs = World::default();
@@ -69,7 +73,10 @@ impl State{
             //camera: Camera::new(map_builder.player_start)
             ecs,
             resources,
-            systems: build_scheduler() //TODO: add function
+            //systems: build_scheduler() //TODO: add function
+            input_systems: build_input_scheduler(),
+            player_systems: build_player_scheduler(),
+            monster_systems: build_monster_scheduler()          
         }
     }
 }
@@ -84,7 +91,14 @@ impl GameState  for State{
         //self.player.render(ctx, &self.camera);
 
         self.resources.insert(ctx.key);
-        self.systems.execute(&mut self.ecs, &mut self.resources);
+        //self.systems.execute(&mut self.ecs, &mut self.resources);
+
+        let current_state = self.resources.get::<TurnState>().unwrap().clone();
+        match current_state{
+            TurnState::AwaitingInput => self.input_systems.execute(&mut self.ecs, &mut self.resources),
+            TurnState::PlayerTurn => self.player_systems.execute(&mut self.ecs, &mut self.resources),
+            TurnState::MonsterTurn => self.monster_systems.execute(&mut self.ecs, &mut self.resources)
+        }
         render_draw_buffer(ctx).expect("render error");
     }
 }
