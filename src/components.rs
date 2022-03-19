@@ -2,7 +2,7 @@
 /// components.rs
 /// 
 /// authors: claudio piccinini picci2001@yahoo.it
-/// updated:26/02/22
+/// updated:19/03/22
 ///
 pub use crate::prelude::*;  //TODO: why is this public?
 ///////////////
@@ -30,3 +30,11 @@ pub struct WantsToMove{
     pub destination: Point
 }
 
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Health{
+    pub current: i32,
+    pub max: i32
+}
+
+#[derive(Clone, PartialEq)]
+pub struct Name(pub String);
