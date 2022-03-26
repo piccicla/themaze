@@ -2,7 +2,7 @@
 /// components.rs
 /// 
 /// authors: claudio piccinini picci2001@yahoo.it
-/// updated:19/03/22
+/// updated:26/03/22
 ///
 pub use crate::prelude::*;  //TODO: why is this public?
 ///////////////
@@ -38,3 +38,9 @@ pub struct Health{
 
 #[derive(Clone, PartialEq)]
 pub struct Name(pub String);
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WantsToAttack{
+    pub attacker: Entity,
+    pub victim: Entity
+}
